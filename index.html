@@ -1,172 +1,74 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Mein Profil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>2x2 Fotoblöcke</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
 
-  <style>
-    :root {
-      --accent1: #ff9aa2;
-      --accent2: #feca57;
-      --accent3: #1a2a6c;
-      --accent4: #050717;
-      --card-bg: rgba(255,255,255,0.9);
-      --shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to top, #1a2a6c, #243b8a);
+        }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, var(--accent3), var(--accent4));
-      color: #222;
-    }
+        .grid {
+            width: 80vw;
+            height: 80vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
 
-    .profile-container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-    
-    .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 20px;
-      box-shadow: var(--shadow);
-    }
+        .block {
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .block:hover {
+            opacity: 0.85;
+        }
 
-    h1 {
-      margin: 10px 0;
-      font-size: 28px;
-      color: var(--accent4);
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: var(--accent3);
-      margin-bottom: 20px;
-    }
-
-    .section {
-      text-align: left;
-      margin-top: 30px;
-    }
-
-    .section h2 {
-      margin-bottom: 10px;
-      font-size: 20px;
-      color: var(--accent4);
-    }
-
-    .info-box {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 15px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill {
-      background: #ff9aa2;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .links a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 16px;
-      background: #FF9AA2;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.2s;
-      box-shadow: var(--shadow);
-    }
-
-    .links a:hover {
-      background: #BF656B;
-    }
-  </style>
+        /* Nicht klickbarer Block (oben links) */
+        .disabled {
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="profile-container">
-
-  <div class="avatar">
-      <img src="profilbild.jpg" alt="Profilbild">
-  </div>
-
-  <h1>Tanja Sekowski</h1>
-  <div class="subtitle"> IT-Fan • Zukunfts-Netzwerkprofi • Tüftlerin </div>
-
-  <!-- Über mich -->
-  <div class="section">
-    <h2>Über mich</h2>
-    <div class="info-box">
-      Hallo! Ich bin Tanja und interessiere mich für Netzwerke, Server, Smarthome 
-      und kreative Webentwicklung. In meiner Freizeit bastle ich an eigenen Projekten 
-      und verbessere mein Heimnetzwerk.
+<div class="grid">
+    <!-- oben links (nicht klickbar) -->
+    <div class="block disabled"
+         style="background-image: url('bild1.jpg');">
     </div>
-  </div>
 
-  <!-- Persönliche Daten -->
-  <div class="section">
-    <h2>Persönliche Daten</h2>
-    <div class="info-box">
-      <b>Alter:</b> 24<br>
-      <b>Wohnort:</b> Hannover<br>
-      <b>Wunsch-Beruf:</b> FISI<br>
-      <b>E-Mail:</b> tanja.sekowski@gmx.de
+    <!-- oben rechts -->
+    <div class="block"
+         style="background-image: url('bild2.jpg');"
+         onclick="alert('Block oben rechts geklickt')">
     </div>
-  </div>
 
-  <!-- Fähigkeiten -->
-  <div class="section">
-    <h2>Fähigkeiten & Interessen</h2>
-    <div class="skills">
-      <div class="skill">Netzwerke</div>
-      <div class="skill">Python</div>
-      <div class="skill">Webdesign</div>
-      <div class="skill">Servertechnik</div>
-      <div class="skill">Programmierung</div>
+    <!-- unten links -->
+    <div class="block"
+         style="background-image: url('bild3.jpg');"
+         onclick="alert('Block unten links geklickt')">
     </div>
-  </div>
 
-  <!-- Links -->
-  <div class="section">
-    <h2>Links & Kontakte</h2>
-    <div class="links">
-      <a href="#">📄 Lebenslauf</a>
-      <a href="#">📁 Dokumente</a>
+    <!-- unten rechts -->
+    <div class="block"
+         style="background-image: url('bild4.jpg');"
+         onclick="alert('Block unten rechts geklickt')">
     </div>
-  </div>
-
 </div>
 
 </body>
 </html>
-
