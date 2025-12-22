@@ -2,21 +2,32 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>2x2 Fotoblöcke</title>
+    <title>2x2 Bilder Grid</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         html, body {
             margin: 0;
+            width: 100%;
             height: 100%;
-            font-family: Arial, sans-serif;
         }
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to top, #1a2a6c, #243b8a);
+            background: linear-gradient(
+                to bottom,
+                #4a78d4 0%,
+                #1c2f6f 50%,
+                #04081f 100%
+            );
         }
 
+        /* Grid */
         .grid {
             width: 80vw;
             height: 80vh;
@@ -25,21 +36,36 @@
             grid-template-rows: 1fr 1fr;
         }
 
+        /* Block */
         .block {
-            background-size: cover;
-            background-position: center;
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        /* Bild */
+        .block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Klickbar */
+        a.block {
             cursor: pointer;
         }
 
-        .block:hover {
+        a.block:hover {
             opacity: 0.85;
         }
 
-        /* Nicht klickbarer Block (oben links) */
+        /* Nicht klickbar (oben links) */
         .disabled {
-            cursor: default;
             pointer-events: none;
-            opacity: 0.9;
+            cursor: default;
         }
     </style>
 </head>
@@ -47,24 +73,24 @@
 
 <div class="grid">
 
-    <!-- oben links (nicht klickbar) -->
+    <!-- OBEN LINKS – NICHT KLICKBAR -->
     <div class="block disabled">
         <img src="bild1.jpg" alt="Bild oben links">
     </div>
 
-    <!-- oben rechts (klickbar) -->
+    <!-- OBEN RECHTS – KLICKBAR -->
     <a href="#"
        class="block">
         <img src="bild2.jpg" alt="Bild oben rechts">
     </a>
 
-    <!-- unten links (klickbar) -->
+    <!-- UNTEN LINKS – KLICKBAR -->
     <a href="#"
        class="block">
         <img src="bild3.jpg" alt="Bild unten links">
     </a>
 
-    <!-- unten rechts (klickbar) -->
+    <!-- UNTEN RECHTS – KLICKBAR -->
     <a href="#"
        class="block">
         <img src="bild4.jpg" alt="Bild unten rechts">
@@ -74,6 +100,3 @@
 
 </body>
 </html>
-
-
-
