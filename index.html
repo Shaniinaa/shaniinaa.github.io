@@ -1,101 +1,95 @@
+html
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>2x2 Bilder Grid</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Projekte</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-        }
-
         body {
+            background-color: darkblue;
+            font-family: sans-serif;
+            color: black; / Standard-Textfarbe /
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(
-                to bottom,
-                #495289 0%,    
-                #090e30 100%   
-            );
+            min-height: 100vh;
         }
 
-        /* Grid */
-        .grid {
-            width: 80vw;
-            height: 80vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 20px; /* Abstand zwischen den Blöcken */
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Block */
-        .block {
+        h1, h2 {
+            text-align: center;
+            color: darkblue; / Überschriftenfarbe /
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        a {
             display: block;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: f0f0f0;
+            border-radius: 5px;
             text-decoration: none;
+            color: darkblue; / Linkfarbe /
         }
 
-        /* Bild */
-        .block img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Klickbar */
-        a.block {
-            cursor: pointer;
-        }
-
-        a.block:hover {
-            opacity: 0.85;
-        }
-
-        /* Nicht klickbar (oben links) */
-        .disabled {
-            pointer-events: none;
-            cursor: default;
+        a:hover {
+            background-color: ddd;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Meine Projekte</h1>
+        <p>Hallo</p>
 
-<div class="grid">
+        <h2>Virtuelle Maschinen</h2>
+        <p>Hallo 2</p>
+        <div class="link-container">
+            <a href="">Link 1 (PDF)</a>
+            <a href="">Link 2 (PDF)</a>
+            <a href="">Link 3 (PDF)</a>
+            <a href="">Link 4 (PDF)</a>
+        </div>
 
-    <!-- OBEN LINKS – NICHT KLICKBAR -->
-    <div class="block disabled">
-        <img src="bild1.jpg">
+        <h2>Intranet-Server</h2>
+        <p>Hallo 3</p>
+        <div class="link-container">
+            <a href="">Link 1 (PDF)</a>
+            <a href="">Link 2 (PDF)</a>
+        </div>
+
+        <h2>Kurse</h2>
+        <p>Hallo 2</p>
+        <div class="link-container">
+            <a href="">Link 1 (PDF)</a>
+            <a href="">Link 2 (PDF)</a>
+            <a href="">Link 3 (PDF)</a>
+            <a href="">Link 4 (PDF)</a>
+            <a href="">Link 5 (PDF)</a>
+            <a href="">Link 6 (PDF)</a>
+            <a href="">Link 7 (PDF)</a>
+        </div>
     </div>
-
-    <!-- OBEN RECHTS – KLICKBAR -->
-    <a href="https://shaniinaa.github.io/Virtualbox/" class="block" target="_blank">
-        <img src="bild2.jpg">
-    </a>
-
-    <!-- UNTEN LINKS – KLICKBAR -->
-    <a href="https://example.com/recherche" class="block" target="_blank">
-        <img src="bild3.jpg">
-    </a>
-
-    <!-- UNTEN RECHTS – KLICKBAR -->
-    <a href="https://example.com/screenshots" class="block" target="_blank">
-        <img src="bild4.jpg">
-    </a>
-
-</div>
-
 </body>
 </html>
-
 
